@@ -31,10 +31,10 @@ export const GmootDisplay = () => {
       getGmoots(publicKey)
         .then(gmootInfos => {
           gmootInfos.sort(function(a,b) {
-            return Rarities.indexOf(a.number) - Rarities.indexOf(b.number) + 1
+            return Rarities.indexOf(a.number) - Rarities.indexOf(b.number)
           })
           let allGmoots = gmootInfos.map(gmootInfo =>
-            <GmootCard img={gmootInfo.img} name={gmootInfo.name} rank={Rarities.indexOf(gmootInfo.number).toString()}/>
+            <GmootCard img={gmootInfo.img} name={gmootInfo.name} rank={Rarities.indexOf(gmootInfo.number + 1).toString()}/>
           )
           setGmoots(allGmoots)
         });

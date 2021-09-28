@@ -34,7 +34,7 @@ export const GmootDisplay = () => {
             return Rarities.indexOf(a.number) - Rarities.indexOf(b.number)
           })
           let allGmoots = gmootInfos.map(gmootInfo =>
-            <GmootCard img={gmootInfo.img} name={gmootInfo.name} rank={Rarities.indexOf(gmootInfo.number + 1).toString()}/>
+            <GmootCard img={gmootInfo.img} name={gmootInfo.name} rank={(Rarities.indexOf(gmootInfo.number) + 1).toString()}/>
           )
           setGmoots(allGmoots)
         });

@@ -51,11 +51,6 @@ const findProgramAddress = async (
   seeds: (Buffer | Uint8Array)[],
   programId: PublicKey
 ) => {
-  const key =
-    "pda-" +
-    seeds.reduce((agg, item) => agg + item.toString("hex"), "") +
-    programId.toString();
-
   const result = await PublicKey.findProgramAddress(seeds, programId);
 
   return [result[0].toBase58(), result[1]] as [string, number];
@@ -196,6 +191,7 @@ export async function getMetadataAccount(
   )[0];
 }
 
+// eslint-disable-next-line no-control-regex
 const METADATA_REPLACE = new RegExp("\u0000", "g");
 export const decodeMetadata = (buffer: Buffer) => {
   try {

@@ -31,7 +31,7 @@ export const GmootDisplay = () => {
       getGmoots(publicKey)
         .then(gmootInfos => {
           gmootInfos.sort(function(a,b) {
-            return Rarities.indexOf(a.number) - Rarities.indexOf(b.number)
+            return Rarities.indexOf(a.number) - Rarities.indexOf(b.number) + 1
           })
           let allGmoots = gmootInfos.map(gmootInfo =>
             <GmootCard img={gmootInfo.img} name={gmootInfo.name} rank={Rarities.indexOf(gmootInfo.number).toString()}/>
